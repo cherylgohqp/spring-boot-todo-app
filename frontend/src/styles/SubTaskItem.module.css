@@ -1,0 +1,58 @@
+.subtask-item-container {
+  padding-left: 8px;
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.divider-container {
+  height: 100%;
+}
+.divider {
+  /* gives the vertical border */
+  height: 50%;
+  width: 2px;
+  background-color: #d3d3d3;
+}
+
+.divider-horizontal {
+  height: 2px;
+  width: 16px;
+  background-color: #d3d3d3;
+}
+
+.completed-divider {
+  background-color: #1677ff;
+}
+
+.completed-divider-horizontal {
+  background-color: #1677ff;
+}
+
+.subtask-item-container:last-child .divider:nth-child(3) {
+  /* hide the extra vertical divider after the last subtask item */
+  display: none;
+}
+
+.subtask-info-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.delete-button:hover {
+  transform: scale(1.2); /* Slightly enlarges the icon on hover */
+}

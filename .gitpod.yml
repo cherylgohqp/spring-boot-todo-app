@@ -1,0 +1,38 @@
+tasks:
+  - name: Run Services
+    command: docker-compose up;
+  - name: Run Backend Java Springboot
+    init: |
+      y | sdk install java 17.0.3-ms || true
+      cd backend 
+      mvn clean install -DskipTests=true
+    command: mvn spring-boot:run
+  - name: Open SwaggerUI
+    command: |
+      gp ports await 8080 && sleep 5 && gp ports await 8080 && gp preview --external $(gp url 8080)/swagger-ui/index.html && exit
+  - name: Run Frontend ReactJS
+    init: cd frontend && npm i && gp sync-done frontend && echo "REACT_APP_API_BASE_URL=$(gp url 8080)" > ./.env
+    command: npm run start
+  - name: Run Storybook
+    init: gp sync-await frontend && cd frontend
+    command: npm run storybook
+
+ports:
+    - name: Backend SwaggerUI
+      port: 8080
+      visibility: public
+      onOpen: ignore
+    - name: Frontend App
+      port: 3000
+      visibility: public
+      onOpen: ignore
+    - name: Frontend Storybook
+      port: 6006
+      visibility: public
+      onOpen: ignore
+    - name: MariaDB
+      port: 3306
+      onOpen: ignore
+    - name: Redis
+      port: 6379
+      onOpen: ignore

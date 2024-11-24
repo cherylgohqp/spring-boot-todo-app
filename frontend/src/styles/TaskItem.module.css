@@ -1,0 +1,64 @@
+.subtask-count {
+  padding: 4px;
+}
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding-left: 8px;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.delete-button:hover {
+  transform: scale(1.2); /* Slightly enlarges the icon on hover */
+}
+
+.add-subtask-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.add-subtask-button:hover {
+  transform: scale(1.2); /* Slightly enlarges the icon on hover */
+}
+
+.add-subtask-form {
+  padding: 8px 8px 8px 0;
+}
+.add-subtask-input {
+  margin:0px;
+}
+
+.subtasks-container {
+  background-color: #f7fafc;
+  display: flex;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.subtasks-container:last-child .divider:nth-child(3) {
+  /* hide the extra vertical divider after the "add subtask input" if there are no subtasks */
+  display: none;
+}
+
+.divider {
+  height: 50%;
+  width: 2px;
+  background-color: #d3d3d3;
+}
+
+.divider-horizontal {
+  height: 2px;
+  width: 16px;
+  background-color: #d3d3d3;
+}
