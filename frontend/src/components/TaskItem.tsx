@@ -43,7 +43,6 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           </span>
         </Checkbox>
 
-        {/* Added subtask icon for Task 4 */}
         <div
           data-testid={`add-subtask-${task.id}`}
           className={`${styles["add-subtask-button"]}`}
